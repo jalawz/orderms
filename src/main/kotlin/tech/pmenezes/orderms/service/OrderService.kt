@@ -22,7 +22,6 @@ class OrderService(
 
     fun save(event: OrderCreatedEvent) {
         val eventEntity = event.toEntity()
-
         orderRepository.save(eventEntity.copy(total = getTotal(event)?: BigDecimal.ZERO))
     }
 
